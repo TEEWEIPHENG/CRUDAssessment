@@ -34,7 +34,14 @@ git clone https://github.com/TEEWEIPHENG/CRUDAssessment.git
 cd CRUDAssessment
 
 3. Create a SQL Server database for the project.
-
+After added the model in DBset, use this command in terminal to initialize a migration. 
+```
+add-migration initial
+```
+Update the database to create dummy data *optional
+```
+update-database
+```
 4. Update the database connection string in the `appsettings.json` file with your database connection details:
 
 ```json
