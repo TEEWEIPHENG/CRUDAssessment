@@ -45,10 +45,10 @@ namespace CRUDAssessment.Controllers
              _dbAccess.Users.Add(user);
             await _dbAccess.SaveChangesAsync();
 
-            return CreatedAtAction(nameof(GetUser), new { name = user.name}, user);
+            return CreatedAtAction(nameof(GetUser), new { userID = user.userID}, user);
         }
 
-        [HttpPut]
+        [HttpPut("{userID}")]
         public async Task<IActionResult> PutUser(int userID, User user)
         {
             if(userID != user.userID)
@@ -78,7 +78,7 @@ namespace CRUDAssessment.Controllers
             return (_dbAccess.Users?.Any(user => user.userID == userID)).GetValueOrDefault();
         }
 
-        [HttpDelete("{id}")]
+        [HttpDelete("{userID}")]
         public async Task<IActionResult> DeleteUser(int userID)
         {
             if (_dbAccess.Users == null)
